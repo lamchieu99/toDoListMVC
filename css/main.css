@@ -1,0 +1,194 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #e5e5e5;
+}
+
+.app {
+  min-width: 230px;
+  max-width: 550px;
+  margin: 0 auto !important;
+  background: #fff;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.app__todo {
+  margin-top: 100px;
+}
+
+.app__todo .form__todo {
+  position: relative;
+}
+
+.app__todo .form__todo::before {
+  content: "❯";
+  font-size: 22px;
+  color: #e6e6e6;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  transform: rotate(90deg);
+}
+
+.app__todo .form__todo .form__input-add {
+  border-radius: 5px;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+  width: 100%;
+  font-size: 25px;
+  padding: 16px 16px 16px 60px;
+}
+
+.app__todo .form__todo .form__input-add:focus {
+  border-bottom: 1px solid #bbb;
+  outline: none;
+}
+
+.app__todo .list__todo {
+  max-height: 40vh;
+  overflow: scroll;
+}
+
+.app__todo .list__todo .item--completed {
+  text-decoration: line-through;
+  color: #cdcdcd;
+}
+
+.app__todo .list__todo .list__todo-item:hover {
+  background: #f7f7f7;
+}
+
+.app__todo .list__todo .list__todo-item:not(:last-child) {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.app__todo .list__todo .list__todo-item i {
+  font-size: 24px;
+  transition: all 5s linear;
+  padding: 0px 20px;
+  cursor: pointer;
+  color: #415a65;
+  height: 30px;
+}
+
+.app__todo .list__todo .list__todo-item i:hover {
+  color: #3f7790;
+}
+
+.app__todo .list__todo .list__todo-item .list__item-view {
+  display: flex;
+  width: 100%;
+  position: relative;
+  list-style: none;
+  align-items: center;
+  padding: 15px 0px;
+}
+
+.app__todo .list__todo .list__todo-item .list__item-view .list__icon--check {
+  background-image: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E);
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+.app__todo .list__todo .list__todo-item .list__item-view .list__icon--checked {
+  background-image: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E);
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+.app__todo .list__todo .list__todo-item .list__item-view .list__item-text {
+  font-weight: 100;
+  width: 87%;
+  word-break: break-all;
+  font-size: 24px;
+  padding: 0px 20px;
+}
+
+.app__todo .list__todo .list__todo-item .list__item-view .list__icon--trash {
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.app__todo .list__todo .list__todo-item .list__item-view:hover .list__icon--trash {
+  display: block;
+}
+
+.app__footer {
+  padding: 10px 15px;
+  height: 40px;
+  text-align: center;
+  font-size: 15px;
+  border-top: 1px solid #e6e6e6;
+}
+
+.app__footer::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.app__footer .footer__count {
+  float: left;
+  text-align: left;
+}
+
+.app__footer .footer__filters {
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+.app__footer .footer__filters .li__filters {
+  display: inline;
+}
+
+.app__footer .footer__filters .li__filters a {
+  color: inherit;
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.app__footer .footer__filters .li__filters a:hover {
+  border-color: rgba(175, 47, 47, 0.1);
+}
+
+.app__footer .footer__clear--completed {
+  float: right;
+  position: relative;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app__footer .footer__clear--completed:active {
+  float: right;
+  position: relative;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app__footer .footer__clear--completed:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=main.css.map */

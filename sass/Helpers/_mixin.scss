@@ -1,0 +1,18 @@
+// @mixin styleText($color, $fs, $fw) {
+//     color: $color;
+//     font-weight: $fw;
+//     font-size: $fw;
+// }
+
+@mixin styleBorder-bottom($font-size, $border-hover) {
+    border-bottom: $font-size solid $border-hover;
+
+}
+
+@mixin backIMG($background-image) {
+    background-image: $background-image;
+    background-repeat: no-repeat;
+    background-position: center left;
+
+}
+

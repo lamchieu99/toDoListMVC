@@ -1,0 +1,176 @@
+.app {
+    min-width: 230px;
+    max-width: 550px;
+    margin: 0 auto !important;
+    background: $color-white-4;
+    position: relative;
+    box-shadow: 0 2px 4px 0 $blackAlpha-0, 0 25px 50px 0 $blackAlpha-1;
+
+    &__todo {
+        margin-top: $mg-2;
+        .form__todo {
+            position: relative;
+
+            &::before {
+                content: "❯";
+                font-size: $fs-0;
+                color: $color-white-0;
+                position: absolute;
+                top: 18px;
+                left: 18px;
+                -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+
+            .form__input-add {
+                border-radius: $border-radius-0;
+                border: none;
+                @include styleBorder-bottom($fs-4, $color-white-2);
+                box-shadow: inset 0 -2px 1px $blackAlpha-3;
+                width: 100%;
+                font-size: $fs-1;
+                padding: $pd-2 $pd-2 $pd-2 $pd-7;
+
+                &:focus {
+                    @include styleBorder-bottom($fs-4, $color-white-3);
+                    outline: none;
+                }
+            }
+        }
+
+        .list__todo {
+            max-height: 40vh;
+            overflow: scroll;
+
+            .item--completed {
+                text-decoration: line-through;
+                color: #cdcdcd;
+            }
+            .list__todo-item {
+                &:hover {
+                    background: $color-white-5;
+                }
+                &:not(:last-child) {
+                    @include styleBorder-bottom($fs-4, $color-white-0);
+                }
+
+                i {
+                    font-size: $fs-3;
+                    transition: all 5s linear; 
+                    padding: $pd-0 $pd-3;
+                    cursor: pointer;
+                    color: #415a65;
+                    height: 30px;
+
+                    &:hover {
+                        color: #3f7790;
+                    }
+                }
+
+                .list__item-view {
+                    display: flex;
+                    width: 100%;
+                    position: relative;
+                    list-style: none;
+                    align-items: center;
+                    padding: $pd-1 $pd-0;
+                    .list__icon--check {
+                        @include backIMG($background-image-0)
+                    }
+
+                    .list__icon--checked {
+                        @include backIMG($background-image-1)
+                    }
+
+                    .list__item-text {
+                        font-weight: 100;
+                        width: 87%;
+                        word-break: break-all;
+                        font-size: $fs-3;
+                        padding: $pd-0 $pd-3;
+                    }
+
+                    .list__icon--trash {
+                        display: none;
+                        transition: all 0.3s ease;
+                    }
+
+                    &:hover .list__icon--trash {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    &__footer {
+        padding: $pd-4 $pd-1;
+        height: 40px;
+        text-align: center;
+        font-size: $pd-1;
+        border-top: 1px solid #e6e6e6;
+
+        &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 50px;
+            overflow: hidden;
+            box-shadow: 0 1px 1px $blackAlpha-0, 0 8px 0 -3px $color-white-6, 0 9px 1px -3px $blackAlpha-0, 0 16px 0 -6px $color-white-6, 0 17px 2px -6px $blackAlpha-0;
+        }
+
+        .footer__count {
+            float: left;
+            text-align: left;
+        }
+
+        .footer__filters {
+            margin: $mg-0;
+            padding: $pd-0;
+            list-style: none;
+            position: absolute;
+            right: 0;
+            left: 0;
+
+            .li__filters {
+                display: inline;
+
+                a {
+                    color: inherit;
+                    margin: $mg-1;
+                    padding: $pd-5 $pd-6;
+                    text-decoration: none;
+                    border: 1px solid transparent;
+                    border-radius: $border-radius-1;
+                    &:hover {
+                        border-color: rgba(175, 47, 47, 0.1);
+                    }
+                }
+            }
+
+        }
+
+        .footer__clear--completed {
+            float: right;
+            position: relative;
+            line-height: $line-heigh-0;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:active {
+                float: right;
+                position: relative;
+                line-height: $line-heigh-0;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+}
